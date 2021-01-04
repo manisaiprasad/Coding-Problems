@@ -4,8 +4,8 @@ def twoNumberSum(array, targetSum):
 	for num in array:
 		complement = targetSum-num
 		if complement in nums:
-			return [complement,num]
+			return [complement, num]
 		else:
-			nums[num]=True
+            nums[num] = True
     return []
 # time complexity O(n)
