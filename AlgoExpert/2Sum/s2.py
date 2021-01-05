@@ -5,7 +5,8 @@ def twoNumberSum(array, targetSum):
 		complement = targetSum-num
 		if complement in nums:
 			return [complement, num]
-		else:
+        else:
             nums[num] = True
     return []
+
 # time complexity O(n)
