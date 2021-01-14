@@ -1,5 +1,6 @@
 def iterativeInOrderTraversal(tree, callback):
     # Write your code here.
+
     prevNode = None
     currentNode = tree
     while currentNode is not None:
