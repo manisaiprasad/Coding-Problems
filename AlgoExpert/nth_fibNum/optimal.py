@@ -12,4 +12,6 @@ def getNthFib(n):
 
     return last if n > 1 else first
 
+
+print(getNthFib(23))
 # o(n)
