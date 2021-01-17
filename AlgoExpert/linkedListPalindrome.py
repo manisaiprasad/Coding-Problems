@@ -4,6 +4,8 @@ class LinkedList:
         self.value = value
         self.next = None
 
+# Time O(n) Space O(1)
+
 
 def linkedListPalindrome(head):
     # Write your code here.
