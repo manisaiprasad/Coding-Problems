@@ -1,7 +1,6 @@
 def validIPAddresses(string):
     # Write your code here.
 	ipAddressFound = []
-
 	for i in range(1, min(len(string), 4)):
 		currentIPAddressParts = ["", "", "", ""]
 		currentIPAddressParts[0] = string[:i]
