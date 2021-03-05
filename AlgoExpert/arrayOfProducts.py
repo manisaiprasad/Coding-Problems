@@ -3,7 +3,7 @@ def arrayOfProducts(array):
 	products = []
 	product = 1
     for i in range(len(array)):
-		for j in range(len(array)):
+        for j in range(len(array)):
 			if i ==j:
 				continue
 			product *= array[j]
