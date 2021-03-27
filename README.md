@@ -1,6 +1,6 @@
 # Coding Problems 
 
-These are the some potential coding problems for programming interviews and assessments, also very intresting & fun ones to slove 😎
+These are some potential coding problems for programming interviews and assessments, also very intresting & fun ones to slove 😎
 
 This project is aimed to master Data Structures and Algorithms that are effective in time and space complexity
 
@@ -42,6 +42,9 @@ The topics that this project contains are
 
 ### Currently most of the problems are sloved in Python 
 
-These problems are taken from the varioues books and platfloms like cracking the coding interview book, algoexpert, leetcode and some real coding tests and interviews
+## Sources
 
+These problems are taken from the varioues books and platfloms like cracking the coding interview book, algoexpert, leetcode (not limited to this) and some real coding tests and interviews
 
+## Contributions
+This repository is open to any kind of contributions. Any kind of suggestions, enhancements are always welcome.
