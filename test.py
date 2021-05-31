@@ -1,58 +1,60 @@
-# arr = [3, 3, 4, 4, 5]
-# n = 5
-# l = 10
-# newArr = []
-# arr.sort()
-# if (arr[0]*n) < l:
-#     print("-1")
-# elif (arr[0]*n) == l:
-#     print(arr[0])
-# else:
-#     for i in range(n-1):
-#         newArr.append(arr[i]*n)
-#     dist = abs(newArr[0]-l)
-#     idx = 0
-#     for i in range(1, n-1):
-#         cdist = abs(newArr[i]-l)
-#         if cdist < dist:
-#             idx = i
-#             dist = cdist
-#     print(arr[idx])
+class Question:
+    def __init__(self, questionId, markedOption, score, status="Not Answered"):
+        self.questionId = questionId
+        self.markedOption = markedOption
+        self.score = score
+        self.status = status
 
-# pp = 6
-# qq = 3
-# rr = 5
 
-# qq = 1+rr
-# qq = 5+qq
-# if 5 < rr or (pp+rr) > (rr-pp):
-#     pp = (9 & 7)+pp
-#     qq = 5+qq
-# print(pp+qq+rr)
+class Student:
+    def __init__(self, registedId, questionsAttempted):
+        self.registedId = registedId
+        self.questionsAttempted = questionsAttempted
 
-# p = 4
-# q = 2
-# r = 7
-# if 4 < q:
-#     q = 1+r
-# print(p+q+r)
-# a = 5
-# b = 7
-# c = 67
-# for i in range(3, 6-1):
-#     b = (11+10) ^ c
-#     if(c+7) > (b-c):
-#         continue
-#     else:
-#         break
-#     a = (a+a)+c
-# print(a+b)
-p = 5
-q = 4
-r = 8
-for r in range(2, 7):
-    p = (10+7)+p
-    if (9-7) > (r-9):
-        q = (p+r)+p
-        p = r+p
-print(p+q)
+    def evaluateQuestions(self, answerKey, questionsAttemptedlist):
+        for key, value in answerKey:
+            for i in range(len(questionsAttemptedlist)):
+                if questionsAttemptedlist[i].questionId == key:
+                    if questionsAttemptedlist[i].markedOption == value:
+                        questionsAttemptedlist[i].status = "correct"
+                    else:
+                        questionsAttemptedlist[i].status = "incorrect"
+
+    def findGrade(self, questionsAttemptedlist):
+        totalScore = 0
+        for i in range(len(questionsAttemptedlist)):
+            if questionsAttemptedlist[i].status == "correct":
+                totalScore += questionsAttemptedlist[i].score
+        if totalScore >= 80:
+            return "A"
+        elif totalScore >= 70 and totalScore < 80:
+            return "B"
+        elif totalScore >= 60 and totalScore < 70:
+            return "C"
+        else:
+            return "F"
+
+
+noOfQuestions = int(input())
+questionsAttemptedlist = []
+for i in range(noOfQuestions):
+    questionId = input()
+    markedOption = input()
+    score = int(input())
+    questionsAttemptedlist.append(
+        Question(questionId, markedOption, markedOption))
+
+countAnswerKey = int(input())
+answerKey = {}
+for i in range(countAnswerKey):
+    questionId = input()
+    answer = input()
+    answerKey[questionId] = answer
+
+studentObj = Student.evaluateQuestions(answerKey, questionsAttemptedlist)
+
+for i in range(len(questionsAttemptedlist)):
+    print(questionsAttemptedlist[i].questionId +
+          " " + questionsAttemptedlist[i].status)
+
+print(studentObj.findGrade(questionsAttemptedlist))
