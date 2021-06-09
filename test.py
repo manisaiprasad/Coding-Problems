@@ -5,7 +5,6 @@ class Question:
         self.score = score
         self.status = status
 
-
 class Student:
     def __init__(self, registedId, questionsAttempted):
         self.registedId = registedId
