@@ -9,14 +9,12 @@ class FruitsOrder:
     def TotalPrice(self):
         return self.unitQtyOrdered*self.pricePerUnit
 
-
 class FruitsStore:
     def __init__(self, fList, avFruitist):
         self.fList = fList
         self.avFruitist = avFruitist
 
     def getTotalPriceOfAvailableOrderedFruit(self, itemId):
-
         for item in self.fList:
             if itemId == item.itemId:
                 avfruit = item.fruitName+"-"+item.fruitType
@@ -31,9 +29,9 @@ class FruitsStore:
                 LeastPriceObject = self.fList[i]
         return LeastPriceObject
 
-
 noOfFruitsOrder = int(input())
 FruitsOrderObjects = []
+
 for i in range(noOfFruitsOrder):
     itemId = int(input())
     fruitName = input()
@@ -42,21 +40,22 @@ for i in range(noOfFruitsOrder):
     pricePerUnit = float(input())
     FruitsOrderObjects.append(FruitsOrder(
         itemId, fruitName, fruitType, unitQtyOrdered, pricePerUnit))
-
 noOfAvFruits = int(input())
 AvFruitsList = []
+
 for i in range(noOfAvFruits):
     avFriuts = input()
     AvFruitsList.append(avFriuts)
+
 FruitsStoreobject = FruitsStore(FruitsOrderObjects, AvFruitsList)
 itemId = int(input())
 totalPrice = FruitsStoreobject.getTotalPriceOfAvailableOrderedFruit(itemId)
 LeastPrice = FruitsStoreobject.getFruitWithLeastPrice()
+
 if totalPrice is None:
     print("itemID OR fruit not fount")
 else:
     print(totalPrice)
-
 print(LeastPrice.itemId)
 print(LeastPrice.fruitName)
 print(LeastPrice.fruitType)
