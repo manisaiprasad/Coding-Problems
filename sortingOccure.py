@@ -2,8 +2,64 @@
 # You need to sort this array according to the frequency of occurance of each number.
 # You are free to choose any sorting algorithm.
 
-# creating a random array of size 100 with numbers between 0-10
 import random
+import time
+
+# Implementing Quick sort
+
+
+def quickSort(array):
+    # copying array to use same array for other sorting algorithms
+    sorted_array = array.copy()
+
+    # storing start time in begin
+    begin = time.time()
+
+    # performing sort using quickSortHelper function by passing the List, Starting index and Ending index
+    quickSortHelper(sorted_array, 0, len(sorted_array)-1)
+
+    # storing end time in end
+    end = time.time()
+    # finding total time
+    total_time = end - begin
+
+    # retuning the sorted array and time taken
+    return sorted_array, total_time
+
+# This Implementation takes last element as pivot, places the pivot element at its correct position in sorted array
+
+
+def partition(arr, low, high):
+    i = (low-1)    # index of smaller element
+    pivot = arr[high]  # pivot
+
+    for j in range(low, high):
+
+        # If current element is smaller than or equal to pivot
+        if arr[j] <= pivot:
+            # increment index of smaller element
+            i = i+1
+            arr[i], arr[j] = arr[j], arr[i]
+
+    arr[i+1], arr[high] = arr[high], arr[i+1]
+    return (i+1)
+
+# The helper function that implements QuickSort
+# low is Starting index and high is Ending index
+
+
+def quickSortHelper(arr, low, high):
+    if low < high:
+
+        # pi is partitioning index, arr[p] is now at right place
+        pi = partition(arr, low, high)
+
+        # Separately sort elements before partition and after partition
+        quickSortHelper(arr, low, pi-1)
+        quickSortHelper(arr, pi+1, high)
+
+
+# creating a random array of size 100 with numbers between 0-10
 array = [random.randint(1, 10) for i in range(100)]
 print(array)
 
