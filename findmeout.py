@@ -1,21 +1,15 @@
 
-def getSum(n):
-    sum = 0
-    for digit in str(n):
-        sum += int(digit)
-    return sum
-
-
 def FindMeOut(input1):
     multiples = []
     for i in range(2, 20):
         multiples.append(input1 * i)
     for multiple in multiples:
         s = sum(int(digit) for digit in str(multiple))
-        # print(s)
         if(input1 == s):
             return multiple
+    return -1
 
+    
     # i = 1
     # while (1):
     #     # Checking if number has

@@ -6,7 +6,6 @@ class Card:
         self.rank = rank
         self.suit = suit
 
-
 class DeckCards:
     def __init__(self):
         self.deckOfCards = []
