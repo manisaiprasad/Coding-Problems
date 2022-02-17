@@ -5,15 +5,17 @@ def computeDistance(img1, img2):
     img2 = cv2.cvtColor(img2, COLOR_BGR2GRAY)
 
     # Convert to floating point
-    img1 = float32(img1)
-    img2 = float32(img2)
+    img1 = np.float32(img1)
+    img2 = np.float32(img2)
 
     # Flattern the images
     img1 = img1.flatten()
     img2 = img2.flatten()
 
     # Generating the Count-Histogram-Vector
+    #RH1 is the histogram of the first image
     RH1 = zeros(256)
+    #RH2 is the histogram of the second image
     RH2 = zeros(256)
     for i in range(len(img1)):
         RH1[img1[i]] += 1
